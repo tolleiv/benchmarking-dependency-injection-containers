@@ -47,12 +47,12 @@ for ($i = 0; $i < 1000; $i++) {
     // Orno\Di
     $orno = new Orno\Di\Container;
     $bm->start('benchmark2', 'orno');
-    $orno->register('Benchmark\Stubs\Foo', 'Benchmark\Stubs\Foo', false, true);
-    $orno->register('Benchmark\Stubs\Bar', 'Benchmark\Stubs\Bar', false, true);
-    $orno->register('Benchmark\Stubs\Bam', 'Benchmark\Stubs\Bam', false, true);
-    $orno->register('Benchmark\Stubs\BazInterface', 'Benchmark\Stubs\Baz', false, true);
-    $orno->register('Benchmark\Stubs\BartInterface', 'Benchmark\Stubs\Bart', false, true);
-    $foo = $orno->resolve('Benchmark\Stubs\Foo');
+    $orno->add('Benchmark\Stubs\Foo', 'Benchmark\Stubs\Foo', false, true);
+    $orno->add('Benchmark\Stubs\Bar', 'Benchmark\Stubs\Bar', false, true);
+    $orno->add('Benchmark\Stubs\Bam', 'Benchmark\Stubs\Bam', false, true);
+    $orno->add('Benchmark\Stubs\BazInterface', 'Benchmark\Stubs\Baz', false, true);
+    $orno->add('Benchmark\Stubs\BartInterface', 'Benchmark\Stubs\Bart', false, true);
+    $foo = $orno->get('Benchmark\Stubs\Foo');
     $bm->end('benchmark2', 'orno');
     unset($orno);
     unset($foo);

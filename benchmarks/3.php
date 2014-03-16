@@ -49,14 +49,14 @@ for ($i = 0; $i < 10000; $i++) {
     // Orno\Di
     $orno = new Orno\Di\Container;
     $bm->start('benchmark3', 'orno');
-    $orno->register('foo', function() {
+    $orno->add('foo', function() {
         $bart = new Benchmark\Stubs\Bart;
         $bam = new Benchmark\Stubs\Bam($bart);
         $baz = new Benchmark\Stubs\Baz($bam);
         $bar = new Benchmark\Stubs\Bar($baz);
         return new Benchmark\Stubs\Foo($bar);
     });
-    $foo = $orno->resolve('foo');
+    $foo = $orno->get('foo');
     $bm->end('benchmark3', 'orno');
     unset($orno);
     unset($foo);

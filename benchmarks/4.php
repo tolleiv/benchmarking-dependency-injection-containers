@@ -29,12 +29,12 @@ for ($i = 0; $i < 100; $i++) {
     // Orno\Di
     $orno = new Orno\Di\Container;
     $bm->start('benchmark4', 'orno');
-    $orno->register('Benchmark\Stubs\Bart');
-    $orno->register('Benchmark\Stubs\Bam')->withArgument('Benchmark\Stubs\Bart');
-    $orno->register('Benchmark\Stubs\Baz')->withArgument('Benchmark\Stubs\Bam');
-    $orno->register('Benchmark\Stubs\Bar')->withArgument('Benchmark\Stubs\Baz');
-    $orno->register('Benchmark\Stubs\Foo')->withArgument('Benchmark\Stubs\Bar');
-    $foo = $orno->resolve('Benchmark\Stubs\Foo');
+    $orno->add('Benchmark\Stubs\Bart');
+    $orno->add('Benchmark\Stubs\Bam')->withArgument('Benchmark\Stubs\Bart');
+    $orno->add('Benchmark\Stubs\Baz')->withArgument('Benchmark\Stubs\Bam');
+    $orno->add('Benchmark\Stubs\Bar')->withArgument('Benchmark\Stubs\Baz');
+    $orno->add('Benchmark\Stubs\Foo')->withArgument('Benchmark\Stubs\Bar');
+    $foo = $orno->get('Benchmark\Stubs\Foo');
     $bm->end('benchmark4', 'orno');
     unset($orno);
     unset($foo);

@@ -39,21 +39,19 @@ for ($i = 0; $i < 1000; $i++) {
     unset($foo);
 
 }
-
 for ($i = 0; $i < 1000; $i++) {
 
     // Orno\Di
     $orno = (new Orno\Di\Container);
     $bm->start('benchmark1', 'orno');
-    $orno->register('Benchmark\Stubs\BazInterface', 'Benchmark\Stubs\Baz', false, true);
-    $orno->register('Benchmark\Stubs\BartInterface', 'Benchmark\Stubs\Bart', false, true);
-    $foo = $orno->resolve('Benchmark\Stubs\Foo');
+    $orno->add('Benchmark\Stubs\BazInterface', 'Benchmark\Stubs\Baz', false, true);
+    $orno->add('Benchmark\Stubs\BartInterface', 'Benchmark\Stubs\Bart', false, true);
+    $foo = $orno->get('Benchmark\Stubs\Foo');
     $bm->end('benchmark1', 'orno');
     unset($orno);
     unset($foo);
 
 }
-
 for ($i = 0; $i < 1000; $i++) {
 
     // League\Di
